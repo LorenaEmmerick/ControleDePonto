@@ -1,0 +1,182 @@
+<!doctype html>
+
+<html lang="en">
+<meta charset="utf-8">
+
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+
+<link rel="stylesheet" href="NewStyle.css" />
+
+<head>
+
+    <title> Lista dinâmica </title>
+
+</head>
+
+<body>
+
+<div class="container">
+
+    <h1>Controle de Ponto</h1>
+
+    <form id="formulario">
+
+        <div class="row">
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Dia</label>
+                    <input class="form-control" type="date" id="dia" placeholder="Digite o dia" required></input>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Entrada</label>
+                    <input class="form-control" id="entrada" placeholder="Digite o horário de entrada" required></input>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Almoço Entrada</label>
+                    <input class="form-control" id="almocoEntrada" placeholder="Digite o horário de entrada para o almoço" required></input>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Almoço Saída</label>
+                    <input class="form-control" id="almocoSaida" placeholder="Digite o horário de saída para o almoço" required></input>
+                </div>
+            </div>
+            <div class="col-4">
+                <div class="form-group">
+                    <label>Saída</label>
+                    <input class="form-control" id="saida" placeholder="Digite o horário de saída" required></input>
+                </div>
+            </div>
+
+            <div class="col-4">
+                <button type="submit" class="btn btn-primary btn-block" id="Adicionar">Salvar</button>
+            </div>
+    
+        </div>
+
+    </form>
+
+    <div class="table-responsive mt-4">
+
+        <table class="table table-striped" id="table">
+
+          <thead>
+            <tr>
+              <th> Dia </th>
+              <th> Entrada </th>
+              <th> Almoço Entrada </th>
+              <th> Almoço Saída </th>
+              <th> Saída </th>
+              <th> Configurações </th>
+            </tr>
+          </thead>
+
+          <tbody>
+
+        </tbody>
+
+        </table>
+    
+    </div>
+</div>
+    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://kit.fontawesome.com/07519f2d7b.js" crossorigin="anonymous"></script>
+    <script>
+
+        let table = $("#table tbody");
+        let dia = $("#dia");
+        let entrada = $("#entrada");
+        let almocoEntrada = $("#almocoEntrada");
+        let almocoSaida = $("#almocoSaida");
+        let saida = $("#saida");
+
+        let editando = false
+        let linhaSendoEditada = null
+
+        $("#formulario").on("submit", function (evento) {
+
+            evento.preventDefault()
+            let tr = $("<tr>")
+            let tdDia = $("<td>")
+            let tdEntrada = $("<td>")
+            let tdAlmocoEntrada = $("<td>")
+            let tdAlmocoSaida = $("<td>")
+            let tdSaida = $("<td>")
+            let tdAcoes = $("<td>")
+            
+            tdAcoes.addClass("acoes")
+
+            let div = $("<div>").addClass("btn-group").addClass("btn-group-sm").attr("role", "group")
+
+            let btnEditar = $("<button>").addClass("btn").addClass("btn-primary").attr("type", "button")
+            let spanEditar = $("<span>").addClass("fas").addClass("fa-edit")
+            btnEditar.append(spanEditar)
+
+            let btnExcluir = $("<button>").addClass("btn").addClass("btn-danger").attr("type", "button")
+            let spanExcluir = $("<span>").addClass("fas").addClass("fa-trash")
+            btnExcluir.append(spanExcluir)
+
+            btnExcluir.click(
+                function(ev) {
+                    var linha = $(this).parent().parent().parent();
+                    linha.remove();
+                }
+            )
+
+            div.append(btnEditar).append(btnExcluir)
+            tdAcoes.append(div)
+            
+            tdDia.text( dia.val() )            
+            tdEntrada.text(entrada.val())
+            tdAlmocoEntrada.text(almocoEntrada.val())
+            tdAlmocoSaida.text(almocoSaida.val())
+            tdSaida.text(saida.val())
+
+            btnEditar.click(
+                function(ev) {
+                    
+                    entrada.val(tdEntrada.text())
+                    almocoEntrada.val(tdAlmocoEntrada.text()) 
+                    almocoSaida.val(tdAlmocoSaida.text()) 
+                    saida.val(tdSaida.text())
+                    dia.val(tdDia.text())
+
+                    editando = true                  
+                    linhaSendoEditada = $(this).parent().parent().parent()
+                }
+            )
+
+            if (!editando) {                
+                tr.append(tdDia).append(tdEntrada).append(tdAlmocoEntrada).append(tdAlmocoSaida).append(tdSaida).append(tdAcoes)
+                table.append(tr)
+            } else {
+                linhaSendoEditada.find('td').remove()
+                linhaSendoEditada.append(tdDia).append(tdEntrada).append(tdAlmocoEntrada).append(tdAlmocoSaida).append(tdSaida).append(tdAcoes)
+            }
+
+            dia.val("")
+            entrada.val("")
+            almocoEntrada.val("")
+            almocoSaida.val("")
+            saida.val("")
+            editando = false
+            linhaSendoEditada = null
+            
+        });
+
+        
+
+    </script>
+
+</body>
+
+</html>
