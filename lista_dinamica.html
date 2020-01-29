@@ -3,94 +3,116 @@
 <html lang="en">
 <meta charset="utf-8">
 
-<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css" integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
+<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/css/bootstrap.min.css"
+    integrity="sha384-Vkoo8x4CGsO3+Hhxv8T/Q5PaXtkKtu6ug5TOeNV6gBiFeWPGFN9MuhOf23Q9Ifjh" crossorigin="anonymous">
 
 <link rel="stylesheet" href="NewStyle.css" />
 
 <head>
 
-    <title> Lista dinâmica </title>
+    <title> Controle de Ponto </title>
 
 </head>
 
 <body>
 
-<div class="container">
+    <div class="container">
 
-    <h1>Controle de Ponto</h1>
+        <h1> <span class="fas fa-user-clock"></span> Controle de Ponto</h1>
 
-    <form id="formulario">
-
-        <div class="row">
-
-            <div class="col-4">
-                <div class="form-group">
-                    <label>Dia</label>
-                    <input class="form-control" type="date" id="dia" placeholder="Digite o dia" required></input>
-                </div>
+        <div class="card text-white mb-3" id="alertinha">
+            <div class="card-header"></div>
+            <div class="card-body">
+                <p class="card-text"></p>
             </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label>Entrada</label>
-                    <input class="form-control" id="entrada" placeholder="Digite o horário de entrada" required></input>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label>Almoço Entrada</label>
-                    <input class="form-control" id="almocoEntrada" placeholder="Digite o horário de entrada para o almoço" required></input>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <div class="form-group">
-                    <label>Almoço Saída</label>
-                    <input class="form-control" id="almocoSaida" placeholder="Digite o horário de saída para o almoço" required></input>
-                </div>
-            </div>
-            <div class="col-4">
-                <div class="form-group">
-                    <label>Saída</label>
-                    <input class="form-control" id="saida" placeholder="Digite o horário de saída" required></input>
-                </div>
-            </div>
-
-            <div class="col-4">
-                <button type="submit" class="btn btn-primary btn-block" id="Adicionar">Salvar</button>
-            </div>
-    
         </div>
 
-    </form>
+        <form id="formulario">
 
-    <div class="table-responsive mt-4">
+            <div class="row">
 
-        <table class="table table-striped" id="table">
+                <div class="col-4">
+                    <div class="form-group">
 
-          <thead>
-            <tr>
-              <th> Dia </th>
-              <th> Entrada </th>
-              <th> Almoço Entrada </th>
-              <th> Almoço Saída </th>
-              <th> Saída </th>
-              <th> Configurações </th>
-            </tr>
-          </thead>
+                        <label>Dia</label>
+                        <input class="form-control" type="date" id="dia" placeholder="Digite o dia" required></input>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Entrada</label>
+                        <input class="form-control" id="entrada" placeholder="Digite o horário de entrada"
+                            required></input>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Almoço Entrada</label>
+                        <input class="form-control" id="almocoEntrada"
+                            placeholder="Digite o horário de entrada para o almoço" required></input>
+                    </div>
+                </div>
 
-          <tbody>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Almoço Saída</label>
+                        <input class="form-control" id="almocoSaida"
+                            placeholder="Digite o horário de saída para o almoço" required></input>
+                    </div>
+                </div>
+                <div class="col-4">
+                    <div class="form-group">
+                        <label>Saída</label>
+                        <input class="form-control" id="saida" placeholder="Digite o horário de saída" required></input>
+                    </div>
+                </div>
 
-        </tbody>
+                <div class="col-4">
+                    <button type="submit" class="btn btn-primary btn-block" id="Adicionar">Salvar</button>
+                </div>
 
-        </table>
-    
+            </div>
+
+        </form>
+
+        <div class="table-responsive mt-4">
+
+            <table class="table table-striped" id="table">
+
+                <thead>
+                    <tr>
+                        <th> Dia </th>
+                        <th> Entrada </th>
+                        <th> Almoço Entrada </th>
+                        <th> Almoço Saída </th>
+                        <th> Saída </th>
+                        <th> Configurações </th>
+                    </tr>
+                </thead>
+
+                <tbody>
+
+                </tbody>
+
+            </table>
+
+        </div>
     </div>
-</div>
-    <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js" integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n" crossorigin="anonymous"></script>
-    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js" integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"
+        integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU=" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+        integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+        integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+        crossorigin="anonymous"></script>
     <script src="https://kit.fontawesome.com/07519f2d7b.js" crossorigin="anonymous"></script>
     <script>
+
+        let diasLancados = []
+
+        let alertinha = $('#alertinha');
+        let modalExcluir = $('#modalExcluir');
 
         let table = $("#table tbody");
         let dia = $("#dia");
@@ -100,11 +122,41 @@
         let saida = $("#saida");
 
         let editando = false
-        let linhaSendoEditada = null
+        let linhaSelecionada = null
+
+
+        function exibirAlertinha(titulo, texto, tipo) {
+
+            alertinha.find('.card-header').text(titulo)
+            alertinha.find('.card-text').text(texto)
+
+            alertinha.removeClass('bg-success bg-danger bg-warning bg-info')
+
+            alertinha.addClass('bg-' + tipo)
+
+            alertinha.fadeToggle("slow");
+
+            setTimeout(() => {
+                alertinha.fadeToggle("slow");
+            }, 3000);
+        }
+
+
 
         $("#formulario").on("submit", function (evento) {
 
             evento.preventDefault()
+
+            if (!editando) {
+                
+                if (diasLancados.indexOf(dia.val()) != -1) {
+                    exibirAlertinha('Já existe registro nesse dia!', 'Datas duplicadas não podem ser adicionadas.', 'danger')
+                    return;
+                } else {
+                    diasLancados.push(dia.val())
+                }
+            }
+
             let tr = $("<tr>")
             let tdDia = $("<td>")
             let tdEntrada = $("<td>")
@@ -112,7 +164,7 @@
             let tdAlmocoSaida = $("<td>")
             let tdSaida = $("<td>")
             let tdAcoes = $("<td>")
-            
+
             tdAcoes.addClass("acoes")
 
             let div = $("<div>").addClass("btn-group").addClass("btn-group-sm").attr("role", "group")
@@ -121,47 +173,65 @@
             let spanEditar = $("<span>").addClass("fas").addClass("fa-edit")
             btnEditar.append(spanEditar)
 
-            let btnExcluir = $("<button>").addClass("btn").addClass("btn-danger").attr("type", "button")
+            let btnExcluir = $("<button>")
+                .addClass("btn")
+                .addClass("btn-danger")
+                .attr("data-toggle", "modal")
+                .attr("data-target", "#modalExcluir")
+                .attr("type", "button")
+
             let spanExcluir = $("<span>").addClass("fas").addClass("fa-trash")
             btnExcluir.append(spanExcluir)
 
-            btnExcluir.click(
-                function(ev) {
-                    var linha = $(this).parent().parent().parent();
-                    linha.remove();
-                }
-            )
-
             div.append(btnEditar).append(btnExcluir)
             tdAcoes.append(div)
-            
-            tdDia.text( dia.val() )            
+
+            tdDia.text(dia.val())
             tdEntrada.text(entrada.val())
             tdAlmocoEntrada.text(almocoEntrada.val())
             tdAlmocoSaida.text(almocoSaida.val())
             tdSaida.text(saida.val())
 
             btnEditar.click(
-                function(ev) {
-                    
+                function (ev) {
+
                     entrada.val(tdEntrada.text())
-                    almocoEntrada.val(tdAlmocoEntrada.text()) 
-                    almocoSaida.val(tdAlmocoSaida.text()) 
+                    almocoEntrada.val(tdAlmocoEntrada.text())
+                    almocoSaida.val(tdAlmocoSaida.text())
                     saida.val(tdSaida.text())
                     dia.val(tdDia.text())
 
-                    editando = true                  
-                    linhaSendoEditada = $(this).parent().parent().parent()
+                    editando = true
+                    linhaSelecionada = $(this).parent().parent().parent()
                 }
             )
 
-            if (!editando) {                
+            btnExcluir.click(
+                function (ev) {
+                    linhaSelecionada = $(this).parent().parent().parent();
+                }
+            )
+
+            let titulo = '';
+            let texto = '';
+            let tipo = '';
+
+            if (!editando) {
                 tr.append(tdDia).append(tdEntrada).append(tdAlmocoEntrada).append(tdAlmocoSaida).append(tdSaida).append(tdAcoes)
                 table.append(tr)
+                titulo = "Ponto incluído com sucesso!";
+                texto = "Sua marcação de ponto foi adicionada.";
+                tipo = "success";
+
             } else {
-                linhaSendoEditada.find('td').remove()
-                linhaSendoEditada.append(tdDia).append(tdEntrada).append(tdAlmocoEntrada).append(tdAlmocoSaida).append(tdSaida).append(tdAcoes)
+                linhaSelecionada.find('td').remove()
+                linhaSelecionada.append(tdDia).append(tdEntrada).append(tdAlmocoEntrada).append(tdAlmocoSaida).append(tdSaida).append(tdAcoes)
+                titulo = "Ponto editado com sucesso!";
+                texto = "Sua marcação de ponto foi editada.";
+                tipo = "info";
             }
+
+            exibirAlertinha(titulo, texto, tipo)
 
             dia.val("")
             entrada.val("")
@@ -169,13 +239,42 @@
             almocoSaida.val("")
             saida.val("")
             editando = false
-            linhaSendoEditada = null
-            
+            linhaSelecionada = null
+
         });
 
-        
+        function btnCertezaExcluir() {
+            linhaSelecionada.remove()
+            linhaSelecionada = null
+            exibirAlertinha('Ponto excluído com sucesso!', 'Sua marcação de ponto foi excluída.', 'danger')
+        }
+
+        function btnCancelaExcluir() {
+            linhaSelecionada = null
+        }
 
     </script>
+
+    <!-- modal  -->
+    <div class="modal" tabindex="-1" role="dialog" id="modalExcluir">
+        <div class="modal-dialog" role="document">
+            <div class="modal-content">
+                <div class="modal-header">
+                </div>
+                <div class="modal-body">
+                    <p> Tem certeza que deseja excluir sua marcação? </p>
+                </div>
+                <div class="modal-footer">
+                    <button type="button" class="btn btn-primary" data-dismiss="modal" id="CertezaExcluir"
+                        onclick="btnCertezaExcluir()"> Sim
+                    </button>
+                    <button type="button" class="btn btn-danger" data-dismiss="modal" onclick="btnCancelaExcluir()">
+                        <span class="fas fa-times" aria-hidden="true"></span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
 
 </body>
 

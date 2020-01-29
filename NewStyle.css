@@ -22,3 +22,18 @@ h1 , thead {
 label {
     font-weight: bolder;
 }
+
+span.fa-user-clock {
+    font-size: 40px;
+    color:#007bff;
+    inline-size: auto;
+    vertical-align: middle;
+}
+
+#alertinha {
+    max-width: 18rem;
+    position: fixed;
+    bottom: 0;
+    right: 14px;
+    display: none;
+}
